@@ -3,7 +3,7 @@
 .page {
   display: grid;
   gap: 40px;
-  inline-size: 375px;
+  inline-size: min(375px, 100% - 20px);
   color: var(--base-color, #f1b2ce);
   font-family: "IBM Plex Mono", sans-serif;
   font-weight: 400;
@@ -18,8 +18,7 @@
 .header {
   position: relative;
   display: grid;
-  grid-template-rows:
-    75px auto 65px auto 50px auto 66px;
+  grid-template-rows: 75px auto 65px auto 50px auto 66px;
   padding-inline: 10px 10px;
   /*  block-size: 100vh;*/
   min-block-size: 668px;
@@ -69,7 +68,7 @@
   text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
 }
 
-.header__title {
+.header__description {
   grid-row: 6;
   justify-self: end;
   align-self: start;
@@ -110,8 +109,8 @@
 .footer::before {
   content: "";
   position: absolute;
-  top: 10px;
-  right: 10px;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
   width: 25px;
   height: 25px;
   border-block-start: 1px solid var(--accent-color, #ff0070);
@@ -122,8 +121,8 @@
 .footer::after {
   content: "";
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  inset-block-end: 10px;
+  inset-inline-start: 10px;
   width: 25px;
   height: 25px;
   border-block-end: 1px solid var(--accent-color, #ff0070);
@@ -160,6 +159,10 @@
   font-weight: 700;
 }
 
+.card__description {
+  text-wrap: balance; 
+}
+
 .card__link {
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
 }
@@ -188,8 +191,12 @@
 }
 
 /*gallery*/
+.gallery {
+  display: grid;
+  gap: 10px;
+}
+
 .gallery__title {
-  margin-block-end: 10px;
   font-weight: 700;
   font-size: 18px;
 }
@@ -221,4 +228,156 @@
   line-height: 0.83;
   text-transform: lowercase;
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+}
+
+
+@media (width >=768px) {
+  .page {
+    gap: 60px;
+    inline-size: min(768px, 100% - 40px);
+  }
+
+  .header {
+    grid-template-rows: 192px auto 173px auto 162px auto 183px;
+    min-block-size: 1024px;
+    padding-inline: 20px 20px;
+  }
+
+  .header__heading {
+    margin-left: -20px;
+   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); 
+  }
+
+  .header__description {
+    inline-size: 364px;
+    align-self: end;
+  }
+
+  .header__decoration {
+    top: 20px;
+    right: 48px;
+  }
+
+  .header::before {
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
+  }
+
+  .header::after {
+    inset-block-end: 20px;
+    inset-inline-start: 20px;
+  }
+
+  .main {
+    gap: 80px;
+    padding-inline: 20px 20px;
+  }
+
+  .why,
+  .how {
+    grid-template-columns: 236px auto;
+  }
+
+  .what__title {
+    inline-size: 236px;
+  }
+
+  .gallery {
+    gap: 20px;
+  }
+
+  .gallery__images {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 20px;
+    block-size: 780px;
+  }
+
+  .gallery__image {
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .img_sunset {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+
+  .img_ice {
+    grid-area: 1 / 3 / 3 / 4;
+  }
+
+  .img_tape {
+    grid-area: 2 / 1 / 4 / 2;
+  }
+
+  .img_books {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+
+  .img_street {
+    grid-area: 3 / 2 / 4 / 4;
+  }
+  .footer {
+    min-block-size: 1024px;
+    padding-inline: 20px 20px;
+  }
+  
+  .footer::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .footer::after {
+    bottom: 20px;
+    left: 20px;
+  }
+}
+
+@media (width >=1024px) {
+  .page {
+    inline-size: min(1024px, 100% - 40px);
+  }
+
+  .header {
+    grid-template-rows: 20px auto 273px auto 114px auto 134px;
+    min-block-size: 768px;
+  }
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .header__description {
+    inline-size: 491px;
+  }
+
+  .why,
+  .how {
+    grid-template-columns: 315px auto;
+  }
+
+  .what__title {
+    inline-size: 315px;
+  }
+  .what__content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .gallery__images {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 20px;
+    block-size: 1048px;
+  }
+
+  .footer {
+    min-block-size: 768px;
+  }
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); 
+  }
+
 }
