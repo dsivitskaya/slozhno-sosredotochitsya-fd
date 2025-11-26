@@ -3,7 +3,6 @@
 .page {
   display: grid;
   gap: var(--page-grid-gap);
-  inline-size: min(375px, 100% - 20px);
   color: var(--base-color, #f1b2ce);
   font-family: "IBM Plex Mono", sans-serif;
   font-weight: 400;
@@ -13,6 +12,7 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  inline-size: min(375px, 100% - 20px);
 }
 
 .header {
@@ -20,7 +20,7 @@
   display: grid;
   grid-template-rows: 75px auto 65px auto 50px auto 66px;
   padding-inline: var(--page-padding) var(--page-padding);
-  /*  block-size: 100vh;*/
+  /*block-size: 100vh;*/
   min-block-size: 668px;
 }
 
@@ -35,12 +35,11 @@
   gap: 10px;
 }
 
-
 .header__theme-menu-button {
   border: 1px solid transparent;
-  color: var(--accent-color, #ff0070);
-  padding-block: 1.5px;
   padding-inline: 13px;
+  padding-block: 1.5px;
+  color: var(--accent-color, #ff0070);
   text-transform: lowercase;
   background-color: transparent;
   -webkit-appearance: none;
@@ -49,9 +48,12 @@
 }
 
 .header__theme-menu-button_active {
-  border-color: currentColor; /* Граница совпадает с цветом текста */
-  pointer-events: none; /* Блокируем клики */
-  cursor: default; /* Меняем курсор на стандартный */
+  border-color: currentColor;
+  /* Граница совпадает с цветом текста */
+  cursor: default;
+  /* Меняем курсор на стандартный */
+  pointer-events: none;
+  /* Блокируем клики */
 }
 
 .header__theme-menu-button:focus {
@@ -59,7 +61,8 @@
 }
 
 .header__theme-menu-button:focus-visible {
-  border-color: transparent; /* Убираем общую границу */
+  border-color: transparent;
+  /* Убираем общую границу */
 }
 
 /* Нижняя граница при фокусе */
@@ -70,10 +73,9 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: currentColor; /* Цвет совпадает с текстом */
+  background-color: currentColor;
+  /* Цвет совпадает с текстом */
 }
-
-
 
 .header__title {
   grid-row: 4;
@@ -100,9 +102,9 @@
 
 /*REC*/
 .header__decoration {
-  display: block;
   position: absolute;
   inset: 10px 38px auto auto;
+  display: block;
   color: var(--accent-color, #ff0070);
   line-height: calc(25 / 18);
   text-transform: uppercase;
@@ -111,8 +113,6 @@
 .theme-light .header__decoration {
   display: none;
 }
-
-
 
 .header__decoration::after {
   content: "";
@@ -133,8 +133,8 @@
   inset: var(--page-padding) var(--page-padding) auto auto;
   width: 25px;
   height: 25px;
-  border-block-start: 1px solid var(--accent-color, #ff0070);
   border-inline-end: 1px solid var(--accent-color, #ff0070);
+  border-block-start: 1px solid var(--accent-color, #ff0070);
 }
 
 .header::after,
@@ -144,16 +144,16 @@
   inset: auto auto var(--page-padding) var(--page-padding);
   width: 25px;
   height: 25px;
-  border-block-end: 1px solid var(--accent-color, #ff0070);
   border-inline-start: 1px solid var(--accent-color, #ff0070);
+  border-block-end: 1px solid var(--accent-color, #ff0070);
 }
 
 /*sections*/
 .main {
   display: grid;
   gap: var(--main-grid-gap);
-  line-height: 1.3;
   padding-inline: var(--page-padding) var(--page-padding);
+  line-height: 1.3;
 }
 
 .section {
@@ -179,7 +179,7 @@
 }
 
 .card__description {
-  text-wrap: balance; 
+  text-wrap: balance;
 }
 
 .card__link {
@@ -249,7 +249,6 @@
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
 }
 
-
 @media (width >=768px) {
   :root {
     --page-padding: 20px;
@@ -264,8 +263,8 @@
 
   .header {
     grid-template-rows: 192px auto 173px auto 162px auto 183px;
-    min-block-size: 1024px;
     padding-inline: var(--page-padding) var(--page-padding);
+    min-block-size: 1024px;
   }
 
   .header__title {
@@ -273,8 +272,8 @@
   }
 
   .header__description {
-    inline-size: 364px;
     place-self: end;
+    inline-size: 364px;
   }
 
   .header__decoration {
@@ -302,8 +301,8 @@
   }
 
   .gallery__image {
-    block-size: 100%;
     object-fit: cover;
+    block-size: 100%;
   }
 
   .img_sunset {
@@ -325,9 +324,10 @@
   .img_street {
     grid-area: 3 / 2 / 4 / 4;
   }
+
   .footer {
-    min-block-size: 1024px;
     padding-inline: var(--page-padding) var(--page-padding);
+    min-block-size: 1024px;
   }
 }
 
@@ -340,6 +340,7 @@
     grid-template-rows: 20px auto 273px auto 114px auto 134px;
     min-block-size: 768px;
   }
+
   .header__theme-menu {
     place-self: start center;
   }
@@ -350,7 +351,7 @@
 
   .header__title,
   .footer__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); 
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header__description {
@@ -365,9 +366,11 @@
   .what__title {
     inline-size: 315px;
   }
+
   .what__content {
     grid-template-columns: repeat(3, 1fr);
   }
+
   .gallery__images {
     block-size: 1048px;
   }
@@ -375,17 +378,18 @@
   .footer {
     min-block-size: 768px;
   }
-  
 }
+
 @media (prefers-color-scheme: light) {
   .theme-auto {
-    --bg-image: url('../images/cover-image-light.png');
+    --bg-image: url("../images/cover-image-light.png");
     --bg-color: #ffc2e6;
     --heading-color: #ff8dcb;
     --accent-color: #ff8dcb;
     --title-color: #353430;
-    --base-color:  #353430;
+    --base-color: #353430;
   }
+
   .theme-auto .header__decoration {
     display: none;
   }
