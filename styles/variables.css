@@ -3,16 +3,15 @@
   и их переопределение под различные устройства
 */
 :root {
-  --background-image-light: url('../images/cover-image-light.png');
-  --background-image-dark: url('../images/cover-image-dark.png');
+  --bg-image: url('../images/cover-image-dark.png');
   --bg-color: #000028;
- /* --bg-color-light: #ffc2e6;*/
   --heading-color: #db00ff;
-  /*--heading-color-light: #ff8dcb;*/
   --accent-color: #ff0070;
-  /*--accent-color-light: #ff8dcb;*/
   --title-color: #000028;
-  /*--title-color-light: #353430;*/
   --base-color: #f1b2ce;
-  /*--base-color-light: #353430;*/
+  --page-padding: 10px;
+  --page-grid-gap: 40px;
+  --main-grid-gap: 50px;
+  --section-grid-gap: 20px;
+  --gallery-grid-gap: 10px;
 }
