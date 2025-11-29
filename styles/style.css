@@ -1,9 +1,10 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
   display: grid;
-  grid-template-columns: minmax(355px, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
   gap: var(--page-grid-gap);
+  max-width: 100%;
+  overflow-x: hidden;
   color: var(--base-color, #f1b2ce);
   font-family: "IBM Plex Mono", sans-serif;
   font-weight: 400;
@@ -13,7 +14,6 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  inline-size: min(375px, 100%);
 }
 
 .header,
@@ -26,10 +26,9 @@
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  padding-block: 70px 66px;
-  /*block-size: 100vh;*/
+  padding-block: 75px 66px;
+  block-size: 100vh;
   min-block-size: 668px;
-
 }
 
 .header__theme-menu {
@@ -45,7 +44,7 @@
 .header__theme-menu-button {
   border: 1px solid transparent;
   padding-inline: 13px;
-  padding-block: 1.5px;
+  padding-block: 0.5px;
   color: var(--accent-color, #ff0070);
   text-transform: lowercase;
   background-color: transparent;
@@ -55,9 +54,8 @@
 }
 
 .header__theme-menu-button:hover {
-  border-color: #ff007066;
+  border-color: var(--hover-color);
 }
-
 
 .header__theme-menu-button_active {
   border-color: currentColor;
@@ -75,6 +73,7 @@
 
 .header__title {
   place-self: center start;
+  margin-top: 10px;
   color: var(--heading-color, #db00ff);
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
@@ -102,7 +101,7 @@
   inset: var(--page-padding) 38px auto auto;
   display: block;
   color: var(--accent-color, #ff0070);
-  line-height: calc(25 / 18);
+  line-height: 1.4;
   text-transform: uppercase;
 }
 
@@ -230,7 +229,7 @@
 .footer {
   position: relative;
   display: grid;
-  /*  block-size: 100vh;*/
+  block-size: 100vh;
   min-block-size: 668px;
 }
 
@@ -254,17 +253,18 @@
 
   .page {
     min-inline-size: 768px;
-
   }
 
   .header {
-    padding-block: 186px 186px;
+    padding-block: 192px 183px;
     min-block-size: 1024px;
   }
 
   .header__title {
+    margin-top: 15px;
     margin-left: calc(-1 * var(--page-padding));
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+
   }
 
   .header__description {
@@ -331,7 +331,6 @@
     min-block-size: 768px;
   }
 
-
   .header__title {
     place-self: end start;
     margin-top: 40px;
@@ -385,19 +384,34 @@
     --accent-color: #ff8dcb;
     --title-color: #353430;
     --base-color: #353430;
-  }
-
-  .theme-auto .header__theme-menu-button_active {
-    border-color: var(--base-color);
-    cursor: default;
-    pointer-events: none;
-  }
-
-  .theme-auto .header__theme-menu-button:hover {
-    border-color: #32312d66;
+    --hover-color: #32312d66;
   }
 
   .theme-auto .header__decoration {
     display: none;
+  }
+
+  .theme-auto .header__theme-menu-button {
+    color: var(--base-color);
+  }
+
+  .theme-auto .header__theme-menu-button_active {
+    border-color: var(--base-color);
+  }
+
+  .theme-auto .header::before,
+  .theme-auto .footer::before {
+    border-inline-end-color: var(--base-color);
+    border-block-start-color: var(--base-color);
+  }
+
+  .theme-auto .header::after,
+  .theme-auto .footer::after {
+    border-inline-start-color: var(--base-color);
+    border-block-end-color: var(--base-color);
+  }
+
+  .theme-auto .section__title {
+    color: var(--base-color);
   }
 }
