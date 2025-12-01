@@ -10,8 +10,12 @@
   --hover-color: #32312d66;
 }
 
+.theme-light .header__decoration {
+  display: none;
+}
+
 @media (prefers-color-scheme: light) {
-  .theme-auto {
+  :root:not(.theme-dark) {
     --bg-image: url('../images/cover-image-light.png');
     --bg-color: #ffc2e6;
     --heading-color: #ffc2e6;
@@ -23,7 +27,7 @@
     --hover-color: #32312d66;
   }
 
-  .theme-auto .header__decoration {
+  :root:not(.theme-dark) .header__decoration {
     display: none;
   }
 }
